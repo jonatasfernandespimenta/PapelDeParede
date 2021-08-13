@@ -47,5 +47,4 @@ export const Clickable = styled.button`
   background: transparent;
   color: white;
   cursor: pointer;
-  height: 60px;
 `;

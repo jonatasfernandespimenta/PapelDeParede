@@ -5,9 +5,11 @@ import { Container, Wallpaper, Menu, Customizator, IconsContainer, Clickable } f
 import { Texture } from '@material-ui/icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLightbulb, faSwatchbook, faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { faLightbulb, faPalette, faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../../components/Modal';
 import Inspiration from '../../components/Inspiration';
+import Patterns from '../../components/Patterns';
+import Colors from '../../components/Colors';
 
 function CreateYourOwn() {
   const modalContainerRef = useRef(null);  // isso define onde o modal vai aparecer
@@ -25,7 +27,11 @@ function CreateYourOwn() {
     }
 
     if(screen === 1) {
-      return 'Modelos';
+      return <Patterns />;
+    }
+
+    if(screen === 2) {
+      return <Colors />;
     }
 
   }
@@ -53,8 +59,8 @@ function CreateYourOwn() {
                 <Texture style={{ fontSize: 40 }} />
               </Clickable>
 
-              <Clickable>
-                <FontAwesomeIcon icon={faSwatchbook} size={'2x'} />                
+              <Clickable onClick={() => handleModal(2)}>
+                <FontAwesomeIcon icon={faPalette} size={'2x'} />                
               </Clickable>
 
               <Clickable>

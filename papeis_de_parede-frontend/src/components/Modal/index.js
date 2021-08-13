@@ -24,9 +24,11 @@ function Modal({ visible, target, onClose, children }) {
   return ReactDOM.createPortal(
     <Container open={visible}>
       <div style={{ padding: 20, display: 'flex', flexDirection: 'column' }}>
-        <Clickable onClick={onClose}>
-          <Close />
-        </Clickable>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <Clickable onClick={onClose} style={{ position: 'absolute'}}>
+            <Close />
+          </Clickable>
+        </div>
         {children}
       </div>
     </Container>

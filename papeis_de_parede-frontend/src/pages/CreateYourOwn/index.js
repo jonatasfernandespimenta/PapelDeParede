@@ -7,6 +7,7 @@ import { Texture } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLightbulb, faSwatchbook, faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../../components/Modal';
+import Inspiration from '../../components/Inspiration';
 
 function CreateYourOwn() {
   const modalContainerRef = useRef(null);  // isso define onde o modal vai aparecer
@@ -20,7 +21,7 @@ function CreateYourOwn() {
 
   const renderModalContent = () => {
     if(screen === 0) {
-      return 'Inspiração';
+      return <Inspiration />;
     }
 
     if(screen === 1) {

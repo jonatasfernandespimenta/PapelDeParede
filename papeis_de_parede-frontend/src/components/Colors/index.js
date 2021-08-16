@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { ColorsContainer, Container, EditableColors } from './styles';
+import { useColorContext } from '../../contexts/color.context';
+
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/lib/css/styles.css";
 import { Clickable } from '../../pages/CreateYourOwn/styles';
@@ -8,8 +9,14 @@ import { Clickable } from '../../pages/CreateYourOwn/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSwatchbook } from '@fortawesome/free-solid-svg-icons'
 
+import { ColorsContainer, Container, EditableColors, SvgContainer } from './styles';
+
 function Colors() {
-  const [color, setColor] = useColor("hex", "#121212");
+  const { color, setColor } = useColorContext();
+
+  const handleColorChange = (color) => {
+    setColor(color.hex);
+  }
 
   return(
     <Container>

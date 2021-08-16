@@ -4,6 +4,8 @@ import { Container, Wallpaper, Menu, Customizator, IconsContainer, Clickable } f
 
 import { Texture } from '@material-ui/icons';
 
+import { useColorContext } from '../../contexts/color.context';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLightbulb, faPalette, faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../../components/Modal';
@@ -11,8 +13,13 @@ import Inspiration from '../../components/Inspiration';
 import Patterns from '../../components/Patterns';
 import Colors from '../../components/Colors';
 
+import {ReactComponent as BgSvg} from '../../assets/wallpaper-3.svg';
+
+
 function CreateYourOwn() {
-  const modalContainerRef = useRef(null);  // isso define onde o modal vai aparecer
+  const { color } = useColorContext();
+
+  const modalContainerRef = useRef(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [screen, setScreen] = useState(0);
 
@@ -39,8 +46,8 @@ function CreateYourOwn() {
   return (
     <>
       <Container>
-        <Wallpaper ref={modalContainerRef}>
-          <img src="https://i.ytimg.com/vi/q2KCJ6hL09U/hqdefault.jpg" width={400} height={250} />
+        <Wallpaper ref={modalContainerRef} color={color}>
+          <BgSvg />
         </Wallpaper>
 
         <Customizator>

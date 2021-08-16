@@ -8,3 +8,16 @@ export const Container = styled.div`
   flex-direction: column;
   overflow-y: scroll;
 `;
+
+export const PatternBox = styled.div`
+  border: 2px solid white;
+  height: 60px;
+  width: 60px;
+  margin-bottom: 10px;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;

@@ -15,6 +15,16 @@ export const Wallpaper = styled.div`
   justify-content: center;
   align-items: center;
   background: white;
+
+  svg {
+    .st0 {
+      fill: ${({ color }) => color.hex} !important;
+    }
+
+    .st1 {
+      fill: ${({ color }) => color.hex} !important;
+    }
+  }
 `;
 
 export const Customizator = styled.div`

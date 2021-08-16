@@ -1,9 +1,12 @@
+import { ColorContextProvider } from "./contexts/color.context";
 import CreateYourOwn from "./pages/CreateYourOwn";
 
 function App() {
   return (
     <>
-      <CreateYourOwn/>
+      <ColorContextProvider>
+        <CreateYourOwn/>
+      </ColorContextProvider>
     </>
   );
 }

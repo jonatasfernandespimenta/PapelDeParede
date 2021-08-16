@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import { Container, Wallpaper, Menu, Customizator, IconsContainer, Clickable } from './styles';
 
@@ -17,7 +17,7 @@ import {ReactComponent as BgSvg} from '../../assets/wallpaper-3.svg';
 
 
 function CreateYourOwn() {
-  const { color } = useColorContext();
+  const { color, colorInfo } = useColorContext();
 
   const modalContainerRef = useRef(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -46,7 +46,7 @@ function CreateYourOwn() {
   return (
     <>
       <Container>
-        <Wallpaper ref={modalContainerRef} color={color}>
+        <Wallpaper ref={modalContainerRef} color={color} svgStyles={colorInfo}>
           <BgSvg />
         </Wallpaper>
 

@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const getSvgStyles = svgStyles => svgStyles.map(({id, color}, i) => `.st${id} { fill: ${color} !important}`)
 
 export const Container = styled.div`
   height: 100%;
@@ -8,7 +10,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Wallpaper = styled.div`
+export const Wallpaper = styled.div(props => css`
   height: 100%;
   width: 100%;
   display: flex;
@@ -16,16 +18,8 @@ export const Wallpaper = styled.div`
   align-items: center;
   background: white;
 
-  svg {
-    .st0 {
-      fill: ${({ color }) => color.hex} !important;
-    }
-
-    .st1 {
-      fill: ${({ color }) => color.hex} !important;
-    }
-  }
-`;
+  ${getSvgStyles(props.svgStyles)}
+`);
 
 export const Customizator = styled.div`
   background: transparent;

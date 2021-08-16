@@ -12,11 +12,22 @@ import { faSwatchbook } from '@fortawesome/free-solid-svg-icons'
 import { ColorsContainer, Container, EditableColors, SvgContainer } from './styles';
 
 function Colors() {
-  const { color, setColor } = useColorContext();
+  const { color, setColor, colorInfo, setColorInfo } = useColorContext();
 
-  const handleColorChange = (color) => {
-    setColor(color.hex);
+  const data = [
+    {
+      id: 0
+    },
+    {
+      id: 1
+    }
+  ]
+
+  const handleColorChange = (id, color) => {
+    setColorInfo([...colorInfo, { id: id, color: color }])
   }
+
+
 
   return(
     <Container>
@@ -24,11 +35,18 @@ function Colors() {
 
       <ColorPicker width={256} height={128} color={color} onChange={setColor} hideHSV hideRGB dark />
 
-      <ColorsContainer>
-        <Clickable>
-          <EditableColors style={{ background: color.hex }} />
-        </Clickable>
 
+      <ColorsContainer>
+        
+
+        {
+          data.map(item => (
+            <Clickable onClick={() => handleColorChange(item.id, color.hex)}>
+              <EditableColors style={{ background: color.hex }} />
+            </Clickable>
+            
+          ))
+        }
         <Clickable>
           <FontAwesomeIcon icon={faSwatchbook} size={'2x'} />                       
         </Clickable>

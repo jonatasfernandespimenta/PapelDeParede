@@ -86,6 +86,5 @@ function CreateYourOwn() {
   );
 }
 
-// aaaa entendi agora
 
 export default CreateYourOwn;

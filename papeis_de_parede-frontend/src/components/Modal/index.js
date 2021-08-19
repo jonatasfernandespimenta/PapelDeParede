@@ -5,7 +5,6 @@ import { Close } from '@material-ui/icons';
 
 import { Container } from './styles';
 
-// visible vc vai passar, o open aqui dentro é pra controlar se o componente ta montado
 function Modal({ visible, target, onClose, children }) {
   const [open, setOpen] = useState(false);
 
